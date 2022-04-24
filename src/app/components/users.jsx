@@ -3,6 +3,7 @@ import User from "./user";
 
 const Users = ({ users, handleDelete }) => {
   console.log(handleDelete);
+
   return (
     <>
       {users.length > 0 && (

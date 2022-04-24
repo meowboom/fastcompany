@@ -2,7 +2,7 @@ import React from "react";
 // import Qualitie from "./qualitie";
 // import BookMark
 
-const User = (users, handleDelete) => {
+const User = (users, { handleDelete }) => {
   console.log(handleDelete);
   return (
     <>
