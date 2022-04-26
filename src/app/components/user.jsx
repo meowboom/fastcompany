@@ -1,40 +1,48 @@
 import React from "react";
-// import Qualitie from "./qualitie";
-// import BookMark
+import Qualitie from "./qualitie";
+import BookMark from "./bookmark";
 
-const User = (users, { handleDelete }) => {
-  console.log(handleDelete);
+const User = (props) => {
+  const {
+    _id,
+    name,
+    profession,
+    completedMeetings,
+    rate,
+    qualities,
+    handleDelete,
+    handleToggleBookMark,
+    ...rest
+  } = props;
   return (
-    <>
-      {users.users.map((user) => {
-        return (
-          <tr key={user._id} id={user._id}>
-            <th>{user.name}</th>
-            <td>
-              {user.qualities.map((item) => {
-                return (
-                  <span className={"badge m-1 bg-" + item.color} key={item._id}>
-                    {item.name}
-                  </span>
-                );
-              })}
-            </td>
-            <td id={user.profession._id}>{user.profession.name}</td>
-            <td>{user.completedMeetings}</td>
-            <td>{user.rate}/5</td>
-            <td>
-              <button
-                type="button"
-                className="btn btn-danger"
-                onClick={() => console.log(`delete`)}
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-        );
-      })}
-    </>
+    <tr key={_id} id={_id}>
+      <th>{name}</th>
+      <td>
+        {qualities.map((qulity) => (
+          <Qualitie key={qulity._id} {...qulity} />
+        ))}
+      </td>
+
+      <td id={profession._id}>{profession.name}</td>
+      <td>{completedMeetings}</td>
+      <td>{rate}/5</td>
+      <td>
+        <BookMark
+          {...rest}
+          id={_id}
+          handleToggleBookMark={handleToggleBookMark}
+        ></BookMark>
+      </td>
+      <td>
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={() => handleDelete(_id)}
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
   );
 };
 
