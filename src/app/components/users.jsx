@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { paginate } from "../utils/paginate";
 import Pagination from "./pagination";
 import User from "./user";
+import PropTypes from "prop-types";
 
-const Users = ({ users, handleDelete, handleToggleBookMark, ...rest }) => {
+const Users = ({ users, handleDelete, handleToggleBookMark }) => {
   const count = users.length;
   const pageSize = 4;
   const [currentPage, setCurrentPage] = useState(1);
   const handlePageChange = (pageIndex) => {
     setCurrentPage(pageIndex);
   };
-
   const userCrop = paginate(users, currentPage, pageSize);
   return (
     <>
@@ -34,7 +34,6 @@ const Users = ({ users, handleDelete, handleToggleBookMark, ...rest }) => {
                 {...user}
                 handleDelete={handleDelete}
                 handleToggleBookMark={handleToggleBookMark}
-                // {...rest}
               />
             ))}
           </tbody>
@@ -48,6 +47,11 @@ const Users = ({ users, handleDelete, handleToggleBookMark, ...rest }) => {
       ></Pagination>
     </>
   );
+};
+Users.protoTypes = {
+  users: PropTypes.array.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+  handleToggleBookMark: PropTypes.func.isRequired,
 };
 
 export default Users;
