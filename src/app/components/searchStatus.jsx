@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SearchStatus = (props) => {
-  const { users } = props;
+const SearchStatus = ({ length }) => {
   const renderPhrase = (number) => {
     const lastOne = Number(number.toString().slice(-1));
     if (number > 4 && number < 15) return "Человек тусанет";
@@ -13,9 +12,9 @@ const SearchStatus = (props) => {
 
   return (
     <h2>
-      <span className={"badge bg-" + (users.length > 0 ? "primary" : "danger")}>
-        {users.length > 0
-          ? `${users.length} ${renderPhrase(users.length)} с тобой сегодня`
+      <span className={"badge bg-" + (length > 0 ? "primary" : "danger")}>
+        {length > 0
+          ? `${length} ${renderPhrase(length)} с тобой сегодня`
           : "Никто с тобой не тусанет"}
       </span>
     </h2>
@@ -23,7 +22,7 @@ const SearchStatus = (props) => {
 };
 
 SearchStatus.propTypes = {
-  users: PropTypes.array.isRequired,
+  length: PropTypes.number.isRequired,
 };
 
 export default SearchStatus;

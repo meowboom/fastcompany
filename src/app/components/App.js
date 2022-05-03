@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Users from "./users";
-import SearchStatus from "./searchStatus";
 import api from "../api";
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
   };
   return (
     <div>
-      <SearchStatus users={users}></SearchStatus>
       <Users
         users={users}
         handleDelete={handleDelete}
