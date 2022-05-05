@@ -12,25 +12,18 @@ const TableHeader = ({ onSort, selectedSort, columns }) => {
       onSort({ iter: item, order: "asc" });
     }
   };
-  //   console.log(Object.keys(columns));
   return (
     <thead>
       <tr className="table-title">
-        {/* {Object.keys(columns).map((column) => {
-          <th
-            key={column}
-            onClick={() => {
-              handleSort(columns[column].iter);
-            }}
-            scope="col"
-          >
-            {columns[column].name}
-          </th>;
-        })} */}
         {Object.keys(columns).map((column) => (
           <th
             key={column}
-            onClick={() => handleSort(columns[column].iter)}
+            onClick={
+              columns[column].iter
+                ? () => handleSort(columns[column].iter)
+                : undefined
+            }
+            {...{ role: columns[column].iter && "button" }}
             scope="col"
           >
             {columns[column].name}
