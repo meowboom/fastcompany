@@ -47,13 +47,13 @@ const User = (props) => {
   );
 };
 
-User.protoTypes = {
+User.propTypes = {
   _id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   profession: PropTypes.object.isRequired,
   completedMeetings: PropTypes.number.isRequired,
   rate: PropTypes.number.isRequired,
-  qualities: PropTypes.object.isRequired,
+  qualities: PropTypes.array.isRequired,
   handleDelete: PropTypes.func.isRequired,
   handleToggleBookMark: PropTypes.func.isRequired,
 };

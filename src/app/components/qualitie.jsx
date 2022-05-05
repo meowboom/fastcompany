@@ -6,7 +6,7 @@ const Qualitie = (props) => {
   return <span className={"badge m-1 bg-" + color}>{name}</span>;
 };
 
-Qualitie.protoType = {
+Qualitie.propType = {
   name: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
 };

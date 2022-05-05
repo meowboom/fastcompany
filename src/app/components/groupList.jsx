@@ -30,7 +30,7 @@ GroupList.defaultProps = {
   valueProperty: "_id",
   contentProperty: "name",
 };
-GroupList.protoTypes = {
+GroupList.propTypes = {
   items: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   valueProperty: PropTypes.string.isRequired,
   contentProperty: PropTypes.string.isRequired,
