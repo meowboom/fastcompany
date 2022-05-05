@@ -10,6 +10,7 @@ const GroupList = ({
 }) => {
   return (
     <ul className="list-group">
+      <h5>Проффесия</h5>
       {Object.keys(items).map((item) => (
         <li
           key={items[item][valueProperty]}
@@ -31,7 +32,6 @@ GroupList.defaultProps = {
 };
 GroupList.protoTypes = {
   items: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  //   items: PropTypes.object.isRequired,
   valueProperty: PropTypes.string.isRequired,
   contentProperty: PropTypes.string.isRequired,
   onItemSelect: PropTypes.func,

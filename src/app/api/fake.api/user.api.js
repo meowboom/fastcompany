@@ -1,4 +1,4 @@
-import { professions } from "./professions.api";
+import { professionsObject as professions } from "./professions.api";
 const qualities = {
   tedious: {
     _id: "67rdca3eeb7f6fgeed471198",
@@ -10,7 +10,11 @@ const qualities = {
     name: "Странный",
     color: "secondary",
   },
-  buller: { _id: "67rdca3eeb7f6fgeed4711012", name: "Троль", color: "success" },
+  buller: {
+    _id: "67rdca3eeb7f6fgeed4711012",
+    name: "Троль",
+    color: "success",
+  },
   alcoholic: {
     _id: "67rdca3eeb7f6fgeed471101",
     name: "Алкоголик",
@@ -137,7 +141,123 @@ const users = [
     rate: 5,
     bookmark: false,
   },
+  {
+    _id: "77rdca3eeb7f6fgeed471815",
+    name: "Кирилл Дориан",
+    profession: professions.doctor,
+    qualities: [qualities.tedious, qualities.uncertain, qualities.strange],
+    completedMeetings: 36,
+    rate: 2.5,
+    bookmark: false,
+  },
+  {
+    _id: "77rdca3eeb7f6fgeed471816",
+    name: "Кокс Гена",
+    profession: professions.doctor,
+    qualities: [qualities.buller, qualities.handsome, qualities.alcoholic],
+    completedMeetings: 15,
+    rate: 2.5,
+    bookmark: false,
+  },
+  {
+    _id: "77rdca3eeb7f6fgeed471817",
+    name: "Леша Келсо",
+    profession: professions.doctor,
+    qualities: [qualities.buller],
+    completedMeetings: 247,
+    rate: 3.5,
+    bookmark: false,
+  },
+  {
+    _id: "77rdca3eeb7f6fgeed471818",
+    name: "Андрей Грин",
+    profession: professions.waiter,
+    qualities: [qualities.uncertain],
+    completedMeetings: 148,
+    rate: 3.5,
+    bookmark: false,
+  },
+  {
+    _id: "77rdca3eeb7f6fgeed471819",
+    name: "Олег Купер",
+    profession: professions.physics,
+    qualities: [qualities.strange, qualities.tedious],
+    completedMeetings: 37,
+    rate: 4.6,
+    bookmark: false,
+  },
+  {
+    _id: "77rdca3eeb7f6fgeed471820",
+    name: "Саша Хофстедтер",
+    profession: professions.physics,
+    qualities: [qualities.strange, qualities.uncertain],
+    completedMeetings: 147,
+    rate: 3.5,
+    bookmark: false,
+  },
+  {
+    _id: "77rdca3eeb7f6fgeed471821",
+    name: "Гриша Воловиц",
+    profession: professions.engineer,
+    qualities: [qualities.strange, qualities.tedious],
+    completedMeetings: 72,
+    rate: 3.5,
+    bookmark: false,
+  },
+  {
+    _id: "77rdca3eeb7f6fgeed471822",
+    name: "Коля Тесла",
+    profession: professions.engineer,
+    qualities: [qualities.handsome],
+    completedMeetings: 72,
+    rate: 5,
+    bookmark: false,
+  },
+  {
+    _id: "77rdca3eeb7f6fgeed471823",
+    name: "Валя Геллер",
+    profession: professions.cook,
+    qualities: [qualities.strange, qualities.uncertain],
+    completedMeetings: 17,
+    rate: 4.5,
+    bookmark: false,
+  },
+  {
+    _id: "77rdca3eeb7f6fgeed471824",
+    name: "Рататуй Крысин",
+    profession: professions.cook,
+    qualities: [qualities.handsome, qualities.buller],
+    completedMeetings: 17,
+    rate: 4.5,
+    bookmark: false,
+  },
+  {
+    _id: "77rdca3eeb7f6fgeed47181f",
+    name: "Максим Триббиани",
+    profession: professions.actor,
+    qualities: [qualities.uncertain, qualities.strange],
+    completedMeetings: 434,
+    rate: 3.5,
+    bookmark: false,
+  },
+  {
+    _id: "77rdca3eeb7f6fgeed47181r",
+    name: "Вася Питт",
+    profession: professions.actor,
+    qualities: [qualities.handsome],
+    completedMeetings: 434,
+    rate: 5,
+    bookmark: false,
+  },
 ];
-export function fetchAll() {
-  return users;
-}
+
+const fetchAll = () =>
+  new Promise((resolve) => {
+    window.setTimeout(function () {
+      resolve(users);
+    }, 2000);
+  });
+
+export default {
+  fetchAll,
+};

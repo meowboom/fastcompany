@@ -11,7 +11,7 @@ const Users = ({ users: allUsers, handleDelete, handleToggleBookMark }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [professions, setProfessions] = useState();
   const [selectedProf, setSelectedProf] = useState();
-  const pageSize = 2;
+  const pageSize = 4;
   useEffect(() => {
     api.professions.fetchAll().then((data) => setProfessions(data));
   }, []);
@@ -49,7 +49,7 @@ const Users = ({ users: allUsers, handleDelete, handleToggleBookMark }) => {
             onItemSelect={handleProfessionSelect}
           />
           <button onClick={clearFilter} className="btn btn-secondary mt-2">
-            Clear all
+            Очистить
           </button>
         </div>
       )}
